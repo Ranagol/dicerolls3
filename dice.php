@@ -41,7 +41,7 @@ class Dice{
 				case '9':
 					$this->drawDice9Dot();
 					break;
-				default:
+				default://all the numbers bigger than 9 (numbers that will have numeric display, not a rectangle/dot display)
 					echo $this->randomNumber;
 					break;
 			}	
@@ -241,9 +241,22 @@ class Dice{
 		print "<img src=image9.png>";
 	}
 
+	public function drawDiceNumeric(){
+		//creating the rectangle, defining the colors
+		$imSquare =  imageCreate(60, 60);//this is the whole image
+		$background_color = imagecolorallocate($imSquare, 255, 255, 255);
+		$blueDot = imagecolorallocate($imSquare, 10, 10, 255);//blue
+		$yellow = imagecolorallocate($imSquare, 255, 255, 0);
+		ImageFilledRectangle($imSquare,2,2,56,56,$yellow);
 
+		//text part (number display)
+		
 
-
+		//creating and echoing the png file
+		imagepng($imSquare, "imageNumeric.png");
+		imagedestroy($imSquare);//this will remove the unnecesary pictures from our system, after we don't need it.
+		print "<img src=imageNumeric.png>";
+	}
 
 
 }

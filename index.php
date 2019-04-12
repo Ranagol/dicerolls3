@@ -6,7 +6,6 @@ $numberOfDices = $_SESSION['numberOfDices'];
 $maxDiceValue = $_SESSION['maxDiceValue'];
 
 if (isset($_POST)) {
-	var_dump($_POST);
 	$numberOfDices = $_POST['numberOfDices'];
 	$maxDiceValue = $_POST['maxDiceValue'];
 }

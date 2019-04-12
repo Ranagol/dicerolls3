@@ -1,3 +1,11 @@
 .fontsizes{
 	font-size: 40px;
 }
+
+.numbercardsize{
+	width: 50%;
+}
+
+.spanbackground{
+	background-color: rgb(255,255,0);
+}

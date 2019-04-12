@@ -43,6 +43,7 @@ class Dice{
 					break;
 				default://all the numbers bigger than 9 (numbers that will have numeric display, not a rectangle/dot display)
 					echo $this->randomNumber;
+					$this->drawDiceNumeric();
 					break;
 			}	
 	}
@@ -250,7 +251,7 @@ class Dice{
 		ImageFilledRectangle($imSquare,2,2,56,56,$yellow);
 
 		//text part (number display)
-		
+		imagestring($imSquare,5,20,20,$this->randomNumber,$blueDot); 
 
 		//creating and echoing the png file
 		imagepng($imSquare, "imageNumeric.png");

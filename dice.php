@@ -42,7 +42,7 @@ class Dice{
 					$this->drawDice9Dot();
 					break;
 				default://all the numbers bigger than 9 (numbers that will have numeric display, not a rectangle/dot display)
-					echo $this->randomNumber;
+					echo $this->randomNumber . ' ';
 					break;
 			}	
 	}

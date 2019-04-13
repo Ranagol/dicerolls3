@@ -37,7 +37,7 @@
 		<div class="fontsizes">
 			<?php
 				for ($i=0; $i < $numberOfDices; $i++) { 
-					new Dice(1, $maxDiceValue);
+					$dice = new Dice(1, $maxDiceValue);
 				}
 				$_SESSION['numberOfDices'] = $numberOfDices;
 				$_SESSION['maxDiceValue'] = $maxDiceValue;
@@ -45,6 +45,9 @@
 		</div>
 	</div>
 </div>
+
+
+
 
 </body>
 </html>

@@ -11,7 +11,6 @@ class Dice{
 
 
 	public function __construct($randomNumberMinimum, $maxDiceNumber){
-		$this->string = $_SESSION['string'];
 		$this->maxDiceNumber = $maxDiceNumber;
 		$this->randomNumber = rand($randomNumberMinimum,$maxDiceNumber);//here we create a random number between the min and max dice value
 			
@@ -265,8 +264,7 @@ class Dice{
 		imagepng($imSquareX, $string);
 		imagedestroy($imSquareX);
 		echo '<img src=' . $string . '>';
-		$_SESSION['string'] = $string;
-		//unlink($string);
+		
 
 	}
 

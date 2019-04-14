@@ -7,6 +7,7 @@ class Dice{
 	public $randomNumber = 0;
 	public $randomNumberMinimum = 1;
 	public $maxDiceNumber = 0;
+	public $string = 0;
 
 
 	public function __construct($randomNumberMinimum, $maxDiceNumber){
@@ -41,8 +42,9 @@ class Dice{
 				case '9':
 					$this->drawDice9Dot();
 					break;
-				default://all the numbers bigger than 9 (numbers that will have numeric display, not a rectangle/dot display)
-					echo $this->randomNumber . ' ';
+
+				default://all the numbers bigger than 9 (numbers that will have numeric display, not a rectangle/dot display)		
+					$this->drawDiceNumeric();					
 					break;
 			}	
 	}
@@ -64,9 +66,9 @@ class Dice{
 
 
 		//creating and echoing the png file
-		imagepng($imSquare, "image1.png");
+		imagepng($imSquare, "images/image1.png");
 		imagedestroy($imSquare);//this will remove the unnecesary pictures from our system, after we don't need it.
-		print "<img src=image1.png>";
+		print "<img src=images/image1.png>";
 	}
 
 	public function drawDice2Dot(){
@@ -82,9 +84,9 @@ class Dice{
 		$dot7 = imagefilledellipse($imSquare, 12, 48, 9, 9, $blueDot);
 
 		//creating and echoing the png file
-		imagepng($imSquare, "image2.png");
+		imagepng($imSquare, "images/image2.png");
 		imagedestroy($imSquare);//this will remove the unnecesary pictures from our system, after we don't need it.
-		print "<img src=image2.png>";
+		print "<img src=images/image2.png>";
 	}
 
 	public function drawDice3Dot(){
@@ -101,9 +103,9 @@ class Dice{
 		$dot7 = imagefilledellipse($imSquare, 12, 48, 9, 9, $blueDot);
 
 		//creating and echoing the png file
-		imagepng($imSquare, "image3.png");
+		imagepng($imSquare, "images/image3.png");
 		imagedestroy($imSquare);//this will remove the unnecesary pictures from our system, after we don't need it.
-		print "<img src=image3.png>";
+		print "<img src=images/image3.png>";
 	}
 
 	public function drawDice4Dot(){
@@ -121,9 +123,9 @@ class Dice{
 		$dot9 = imagefilledellipse($imSquare, 48, 48, 9, 9, $blueDot);
 
 		//creating and echoing the png file
-		imagepng($imSquare, "image4.png");
+		imagepng($imSquare, "images/image4.png");
 		imagedestroy($imSquare);//this will remove the unnecesary pictures from our system, after we don't need it.
-		print "<img src=image4.png>";
+		print "<img src=images/image4.png>";
 	}
 
 	public function drawDice5Dot(){
@@ -142,9 +144,9 @@ class Dice{
 		$dot9 = imagefilledellipse($imSquare, 48, 48, 9, 9, $blueDot);
 
 		//creating and echoing the png file
-		imagepng($imSquare, "image5.png");
+		imagepng($imSquare, "images/image5.png");
 		imagedestroy($imSquare);//this will remove the unnecesary pictures from our system, after we don't need it.
-		print "<img src=image5.png>";
+		print "<img src=images/image5.png>";
 	}
 
 	public function drawDice6Dot(){
@@ -164,9 +166,9 @@ class Dice{
 		$dot9 = imagefilledellipse($imSquare, 48, 48, 9, 9, $blueDot);
 
 		//creating and echoing the png file
-		imagepng($imSquare, "image6.png");
+		imagepng($imSquare, "images/image6.png");
 		imagedestroy($imSquare);//this will remove the unnecesary pictures from our system, after we don't need it.
-		print "<img src=image6.png>";
+		print "<img src=images/image6.png>";
 	}
 
 	public function drawDice7Dot(){
@@ -187,9 +189,9 @@ class Dice{
 		$dot9 = imagefilledellipse($imSquare, 48, 48, 9, 9, $blueDot);
 
 		//creating and echoing the png file
-		imagepng($imSquare, "image7.png");
+		imagepng($imSquare, "images/image7.png");
 		imagedestroy($imSquare);//this will remove the unnecesary pictures from our system, after we don't need it.
-		print "<img src=image7.png>";
+		print "<img src=images/image7.png>";
 	}
 
 	public function drawDice8Dot(){
@@ -211,9 +213,9 @@ class Dice{
 		$dot9 = imagefilledellipse($imSquare, 48, 48, 9, 9, $blueDot);
 
 		//creating and echoing the png file
-		imagepng($imSquare, "image8.png");
+		imagepng($imSquare, "images/image8.png");
 		imagedestroy($imSquare);//this will remove the unnecesary pictures from our system, after we don't need it.
-		print "<img src=image8.png>";
+		print "<img src=images/image8.png>";
 	}
 
 	public function drawDice9Dot(){
@@ -236,26 +238,35 @@ class Dice{
 		$dot9 = imagefilledellipse($imSquare, 48, 48, 9, 9, $blueDot);
 
 		//creating and echoing the png file
-		imagepng($imSquare, "image9.png");
+		imagepng($imSquare, "images/image9.png");
 		imagedestroy($imSquare);//this will remove the unnecesary pictures from our system, after we don't need it.
-		print "<img src=image9.png>";
+		print "<img src=images/image9.png>";
 	}
 
-	public function drawDiceNumeric(){
+	public function drawDiceNumeric(){//THIS IS THE PATTERN FOR ALL THE NUMBERS ABOVE 9
 		//creating the rectangle, defining the colors
-		$imSquare =  imageCreate(60, 60);//this is the whole image
-		$background_color = imagecolorallocate($imSquare, 255, 255, 255);
-		$blueDot = imagecolorallocate($imSquare, 10, 10, 255);//blue
-		$yellow = imagecolorallocate($imSquare, 255, 255, 0);
-		ImageFilledRectangle($imSquare,2,2,56,56,$yellow);
+		
+		//unlink($this->string);
+		$imSquareX =  imageCreate(60, 60);//this is the whole image
+		$background_color = imagecolorallocate($imSquareX, 255, 255, 255);
+		$blueDot = imagecolorallocate($imSquareX, 10, 10, 255);//blue
+		$yellow = imagecolorallocate($imSquareX, 255, 255, 0);
+		ImageFilledRectangle($imSquareX,2,2,56,56,$yellow);
 
 		//text part (number display)
+		imagestring($imSquareX,5,20,20,$this->randomNumber,$blueDot); 
+
+		//we must create a string from $this->randomNumber and the png
+		$array = [ 'images/', $this->randomNumber,'.', 'png'];//here we create a string from randomNumber a . and a png. This will be the name of the image.
+		$string = implode("",$array);
 		
 
 		//creating and echoing the png file
-		imagepng($imSquare, "imageNumeric.png");
-		imagedestroy($imSquare);//this will remove the unnecesary pictures from our system, after we don't need it.
-		print "<img src=imageNumeric.png>";
+		imagepng($imSquareX, $string);
+		imagedestroy($imSquareX);
+		echo '<img src=' . $string . '>';
+		
+
 	}
 
 

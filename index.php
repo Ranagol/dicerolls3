@@ -1,41 +1,16 @@
 <?php
 session_start();
 
-var_dump($_SESSION['numberOfDices']);
-var_dump($_SESSION['maxDiceValue']);
+var_dump($_SESSION);
+
+var_dump($_POST);
+//var_dump($_POST['numberOfDices']);
+//var_dump($_POST['maxDiceValue']);
 
 
 
-if ($_SESSION['numberOfDices'] == null && $_SESSION['maxDiceValue'] == null && $_POST['numberOfDices'] == null) {// IF SESSION AND POST IS NULL
-	$numberOfDices = 1;
-	$maxDiceValue = 6;
-	echo "VALUES TAKEN FROM DEFAULT HARD CODED DATA";
-	echo $numberOfDices;
-	echo $maxDiceValue;
-} 
-
-if ($_POST['numberOfDices'] !== null && $_POST['maxDiceValue'] !== null) {//IF POST IS NOT NULL
-	$numberOfDices = $_POST['numberOfDices'];
-	$maxDiceValue = $_POST['maxDiceValue'];
-	echo "VALUES TAKEN FROM POST";
-} elseif ($_SESSION['numberOfDices'] !== null && $_SESSION['maxDiceValue'] !== null) {
-	$numberOfDices = $_SESSION['numberOfDices'];
-	$maxDiceValue = $_SESSION['maxDiceValue'];
-	echo "VALUES TAKEN FROM PREVIOUS SESSION";
-}
-
-
-
-/*
-if ($_POST['numberOfDices'] !== null && $_POST['maxDiceValue'] !== null) {
-	$numberOfDices = $_POST['numberOfDices'];
-	$maxDiceValue = $_POST['maxDiceValue'];
-	echo "POST VAS RECEIVED, POST IS NOT NULL ANYMORE";
-	
-} 
-*/
-
-
+	$numberOfDices = isset($_POST['numberOfDices']) ? $_POST['numberOfDices'] : 0;//TERNARY OPERATOR SOLITION FOR THE PROBLEMS CAUSED AT THE BEGINNING WHEN THE FORM IS EMPTY, AND THERE ARE NO VALUES PASSED FROM THE FORM
+	$maxDiceValue = isset($_POST['maxDiceValue']) ? $_POST['maxDiceValue'] : 0;//TERNARY OPERATOR SOLITION FOR THE PROBLEMS CAUSED AT THE BEGINNING WHEN THE FORM IS EMPTY, AND THERE ARE NO VALUES PASSED FROM THE FORM
 
 require 'dice.php';
 require 'index.view.php';

@@ -38,6 +38,7 @@
 			<?php
 				for ($i=0; $i < $numberOfDices; $i++) { 
 					$dice = new Dice(1, $maxDiceValue);
+					
 				}
 				/*$_SESSION['numberOfDices'] = $numberOfDices;
 				$_SESSION['maxDiceValue'] = $maxDiceValue;*/

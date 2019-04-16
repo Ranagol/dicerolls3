@@ -18,11 +18,11 @@
 			<form method="POST">
 				<div class="form-group">
 					<label class="form-control-sm mb-0 pb-0">Maximum value of the dice(s):</label>
-					<input class="form-control pt-0" type="number" name="maxDiceValue" value="<?php echo $maxDiceValue; ?>" placeholder="Maximum value of the dice(s)" required="">
+					<input class="form-control pt-0" type="number" name="maxDiceValue" value="<?php echo $maxDiceValue; ?>" placeholder="Maximum value of the dice(s)" required="" min="1">
 				</div>
 				<div class="form-group">
 					<label class="form-control-sm mb-0 pb-0">Number of dice(s):</label>
-					<input class="form-control pt-0" type="number" name="numberOfDices" value="<?php echo $numberOfDices; ?>" placeholder="Number of dices" required="">
+					<input class="form-control pt-0" type="number" name="numberOfDices" value="<?php echo $numberOfDices; ?>" placeholder="Number of dices" required="" min="1">
 				</div>
 				<div>
 					<button class="btn btn-success">Roll! <i class="fas fa-skull"></i></button>
